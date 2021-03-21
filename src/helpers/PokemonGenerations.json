@@ -1,0 +1,42 @@
+[
+    {
+        "generation": 1,
+        "name": "RB",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 2,
+        "name": "GS",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 3,
+        "name": "RS",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 4,
+        "name": "DP",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 5,
+        "name": "BW",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 6,
+        "name": "XY",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 7,
+        "name": "SM",
+        "backgroundStyle": ""
+    },
+    {
+        "generation": 8,
+        "name": "SS",
+        "backgroundStyle": ""
+    }
+]
