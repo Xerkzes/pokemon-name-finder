@@ -55,6 +55,19 @@ export const setText = (event: React.KeyboardEvent<HTMLInputElement>, index: num
   }
 };
 
+export const removeText = (event: React.KeyboardEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
+  let key = event.key;
+  
+  if (key === "Backspace") {
+    // create new text = replace character
+    let newText =
+      guess.substring(0, index) + " " + guess.substring(index + 1);
+
+    // set new text
+    setFunction(newText);
+  }
+}
+
 /*  ==================================
           search for the Pokemon
     ==================================  */

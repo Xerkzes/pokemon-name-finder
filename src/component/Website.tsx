@@ -5,29 +5,20 @@ import { PokeGuess2 } from "./version2/PokeGuess2";
 interface WebsiteProps {}
 
 export const Website: React.FC<WebsiteProps> = ({}) => {
-  const [showVersion, setShowVersion] = useState<string>("v1");
+  const [showVersion, setShowVersion] = useState<string>("v2");
+
+  const setVersion = (version: string) => {
+    setShowVersion(version);
+  };
 
   return (
     <div>
-      <div className="page-title">
-        <h1>Poke-Name-Finder</h1>
-        <div className="page-versions-div">
-          <p className="page-version" onClick={() => setShowVersion("v1")}>
-            v1
-          </p>
-          <p className="page-version-seperator">/</p>
-          <p className="page-version" onClick={() => setShowVersion("v2")}>
-            v2
-          </p>
-        </div>
-      </div>
-
       {showVersion === "v1" ? (
-        <PokeGuess />
+        <PokeGuess setVersion={setVersion} />
       ) : showVersion === "v2" ? (
-        <PokeGuess2 />
+        <PokeGuess2 setVersion={setVersion} />
       ) : (
-        <div>Nothing to see</div>
+        <div>sorry to say but something went wrong</div>
       )}
     </div>
   );

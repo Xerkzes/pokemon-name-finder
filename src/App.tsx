@@ -1,5 +1,6 @@
 import React from "react";
-import "./App.css";
+import "./Version1.css";
+import "./Version2.css";
 import { Website } from "./component/Website";
 
 const App: React.FC = () => {
