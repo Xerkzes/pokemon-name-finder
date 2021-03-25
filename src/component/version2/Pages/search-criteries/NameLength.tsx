@@ -19,7 +19,9 @@ export const NameLength: React.FC<NameLengthProps> = ({
   functionText,
 }) => {
   const [guessLength, setGuessLength] = useState<number>(guess.length);
-  const [debugText, setDebugText] = useState<string>("");
+  const [debugText, setDebugText] = useState<
+    React.KeyboardEvent<HTMLInputElement>
+  >();
 
   useEffect(() => {
     let tempguess = "";
@@ -78,8 +80,13 @@ export const NameLength: React.FC<NameLengthProps> = ({
 
         <div>
           <h3>Debug</h3>
-          <input onKeyDown={(event) => setDebugText(event.key)}></input>
-          {debugText}
+          <input onKeyDown={(event) => setDebugText(event)}></input>
+          <br></br>
+          {debugText?.code}
+          <br></br>
+          {debugText?.key}
+          <br></br>
+          {debugText?.keyCode}
         </div>
       </div>
     </div>
