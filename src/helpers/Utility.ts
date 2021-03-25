@@ -71,7 +71,7 @@ export const setText2 = (event: React.ChangeEvent<HTMLInputElement>, index: numb
   console.log("new Text: " + event.target.value);
   
   // empty space
-  if (inputText === " " || inputText === ""  || inputText === "  ") {
+  if (inputText === ""  || inputText === "  ") {
     setCharacter(" ", index, guess, setFunction);
     return
   }
@@ -82,7 +82,7 @@ export const setText2 = (event: React.ChangeEvent<HTMLInputElement>, index: numb
   console.log("newCharacter: " + newCharacter)
 
   // enter character | just for safty there is a check is all the requirements are met and nothing funny is enterd
-  if (newCharacter.length === 1 && ( /^[a-zA-Z]*$/.test(newCharacter) || newCharacter === "-")) {
+  if (newCharacter.length === 1 && ( /^[a-zA-Z]*$/.test(newCharacter) || newCharacter === "-" || newCharacter === " ")) {
     setCharacter(newCharacter, index, guess, setFunction);
   }
 }
