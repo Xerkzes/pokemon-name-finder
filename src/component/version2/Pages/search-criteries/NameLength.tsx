@@ -73,17 +73,9 @@ export const NameLength: React.FC<NameLengthProps> = ({
                 className="lengthOfGuess-character2"
                 value={el}
                 onChange={(event) => setText(event, idx, el, guess, setGuess)}
-                // onKeyDown={(event) => functionText(event, idx, guess, setGuess)}
               ></input>
             );
           })}
-        </div>
-
-        <div>
-          <h3>Debug</h3>
-          <input onChange={(event) => setDebugText(event)}></input>
-          <br></br>
-          {debugText?.target.value}
         </div>
       </div>
     </div>
