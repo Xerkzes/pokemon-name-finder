@@ -87,6 +87,8 @@ export const NameLength: React.FC<NameLengthProps> = ({
           {debugText?.key}
           <br></br>
           {debugText?.keyCode}
+          <br></br>
+          {debugText?.which}
         </div>
       </div>
     </div>
