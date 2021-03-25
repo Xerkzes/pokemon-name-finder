@@ -41,30 +41,24 @@ export const setActivationGeneration = (generation: number, array: number[]) => 
   return b;
 }
 
-// updates text when onChange on input is fired on the Length Component
+// updates text when onKeyDown on input is fired on the Length Component
 export const setText = (event: React.KeyboardEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
-  let charCode = event.charCode;
-  
-  if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 45 || charCode == 32) {
-    // create new text = replace character
-    let newText =
-      guess.substring(0, index) + event.key + guess.substring(index + 1);
-
-    // set new text
-    setFunction(newText);
-  }
-};
-
-export const removeText = (event: React.KeyboardEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
   let key = event.key;
   
-  if (key === "Backspace") {
+  if (key === "Backspace" || key === " ") {
     // create new text = replace character
     let newText =
       guess.substring(0, index) + " " + guess.substring(index + 1);
 
     // set new text
     setFunction(newText);
+  } else if (key.length === 1 && ( /^[a-zA-Z]*$/.test(key) || key === "-")) {
+        // create new text = replace character
+        let newText =
+        guess.substring(0, index) + key + guess.substring(index + 1);
+  
+      // set new text
+      setFunction(newText);
   }
 }
 
