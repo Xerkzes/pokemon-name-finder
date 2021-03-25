@@ -62,6 +62,27 @@ export const setText = (event: React.KeyboardEvent<HTMLInputElement>, index: num
   }
 }
 
+export const setText2 = (event: React.ChangeEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
+  let key = event.target.value;
+  console.log(event);
+  
+  if (key === "Backspace" || key === " ") {
+    // create new text = replace character
+    let newText =
+      guess.substring(0, index) + " " + guess.substring(index + 1);
+
+    // set new text
+    setFunction(newText);
+  } else if (key.length === 1 && ( /^[a-zA-Z]*$/.test(key) || key === "-")) {
+        // create new text = replace character
+        let newText =
+        guess.substring(0, index) + key + guess.substring(index + 1);
+  
+      // set new text
+      setFunction(newText);
+  }
+}
+
 /*  ==================================
           search for the Pokemon
     ==================================  */

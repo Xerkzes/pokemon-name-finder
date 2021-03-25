@@ -4,8 +4,8 @@ interface NameLengthProps {
   nextPage: (page: string) => void;
   guess: string;
   setGuess: any;
-  functionText: (
-    event: React.KeyboardEvent<HTMLInputElement>,
+  setText: (
+    event: React.ChangeEvent<HTMLInputElement>,
     index: number,
     guess: string,
     setFunction: React.Dispatch<React.SetStateAction<string>>
@@ -16,11 +16,11 @@ export const NameLength: React.FC<NameLengthProps> = ({
   nextPage,
   guess,
   setGuess,
-  functionText,
+  setText,
 }) => {
   const [guessLength, setGuessLength] = useState<number>(guess.length);
   const [debugText, setDebugText] = useState<
-    React.ChangeEvent<HTMLInputElement>
+    React.KeyboardEvent<HTMLInputElement>
   >();
 
   useEffect(() => {
@@ -71,8 +71,8 @@ export const NameLength: React.FC<NameLengthProps> = ({
                 key={idx}
                 className="lengthOfGuess-character2"
                 value={el}
-                onChange={() => null}
-                onKeyDown={(event) => functionText(event, idx, guess, setGuess)}
+                onChange={(event) => setText(event, idx, guess, setGuess)}
+                // onKeyDown={(event) => functionText(event, idx, guess, setGuess)}
               ></input>
             );
           })}
@@ -80,9 +80,11 @@ export const NameLength: React.FC<NameLengthProps> = ({
 
         <div>
           <h3>Debug</h3>
-          <input onChange={(event) => setDebugText(event)}></input>
+          <input onKeyUp={(event) => setDebugText(event)}></input>
           <br></br>
-          {debugText?.target.value}
+          {debugText?.code}
+          <br></br>
+          {debugText?.key}
         </div>
       </div>
     </div>

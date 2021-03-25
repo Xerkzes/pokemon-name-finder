@@ -8,7 +8,7 @@ import { Search } from "./Pages/Search";
 import { Pokemons } from "./Pages/Pokemons";
 import { Menu } from "./Pages/Menu";
 import { InterfacePokemon } from "../../helpers/interfaces";
-import { setText, pokeSearch } from "../../helpers/Utility";
+import { setText, setText2, pokeSearch } from "../../helpers/Utility";
 import PokemonTypes from "../../helpers/PokemonTypes.json";
 import PokemonColors from "../../helpers/PokemonColors.json";
 import PokemonGenerations from "../../helpers/PokemonGenerations.json";
@@ -105,7 +105,7 @@ export const PokeGuess2: React.FC<PokeGuess2Props> = ({ setVersion }) => {
           nextPage={nextPage}
           guess={guess}
           setGuess={setGuess}
-          functionText={setText}
+          setText={setText2}
         />
       );
     } else if (activePage === "search") {
