@@ -20,7 +20,7 @@ export const NameLength: React.FC<NameLengthProps> = ({
 }) => {
   const [guessLength, setGuessLength] = useState<number>(guess.length);
   const [debugText, setDebugText] = useState<
-    React.KeyboardEvent<HTMLInputElement>
+    React.ChangeEvent<HTMLInputElement>
   >();
 
   useEffect(() => {
@@ -80,15 +80,9 @@ export const NameLength: React.FC<NameLengthProps> = ({
 
         <div>
           <h3>Debug</h3>
-          <input onKeyDown={(event) => setDebugText(event)}></input>
+          <input onChange={(event) => setDebugText(event)}></input>
           <br></br>
-          {debugText?.code}
-          <br></br>
-          {debugText?.key}
-          <br></br>
-          {debugText?.keyCode}
-          <br></br>
-          {debugText?.which}
+          {debugText?.target.value}
         </div>
       </div>
     </div>
