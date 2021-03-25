@@ -42,6 +42,7 @@ export const setActivationGeneration = (generation: number, array: number[]) => 
 }
 
 // updates text when onKeyDown on input is fired on the Length Component
+// doesn't work on mobile devices since the auto-compliction will not give you the input rather says that it still is processing or code 229
 export const setText = (event: React.KeyboardEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
   let key = event.key;
   
@@ -62,25 +63,50 @@ export const setText = (event: React.KeyboardEvent<HTMLInputElement>, index: num
   }
 }
 
-export const setText2 = (event: React.ChangeEvent<HTMLInputElement>, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
-  let key = event.target.value;
-  console.log(event);
+// works with mobile device
+export const setText2 = (event: React.ChangeEvent<HTMLInputElement>, index: number, previousText: string, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
+  let inputText: string = event.target.value;
   
-  if (key === "Backspace" || key === " ") {
-    // create new text = replace character
-    let newText =
-      guess.substring(0, index) + " " + guess.substring(index + 1);
-
-    // set new text
-    setFunction(newText);
-  } else if (key.length === 1 && ( /^[a-zA-Z]*$/.test(key) || key === "-")) {
-        // create new text = replace character
-        let newText =
-        guess.substring(0, index) + key + guess.substring(index + 1);
+  console.log("previous Text: " + previousText)
+  console.log("new Text: " + event.target.value);
   
-      // set new text
-      setFunction(newText);
+  // empty space
+  if (inputText === " " || inputText === ""  || inputText === "  ") {
+    setCharacter(" ", index, guess, setFunction);
+    return
   }
+  
+  // find the new character that should be inputed
+  let newCharacter: string = findNewCharacter(inputText, previousText);
+
+  console.log("newCharacter: " + newCharacter)
+
+  // enter character | just for safty there is a check is all the requirements are met and nothing funny is enterd
+  if (newCharacter.length === 1 && ( /^[a-zA-Z]*$/.test(newCharacter) || newCharacter === "-")) {
+    setCharacter(newCharacter, index, guess, setFunction);
+  }
+}
+
+const findNewCharacter = (inputText: string, previousText: string) => {
+  for (let i = 0; i < inputText.length; i++) {
+    for (let j = 0; j < previousText.length; j++) {
+      if (inputText.charAt(i) != previousText.charAt(j)) {
+        console.log("a:" + inputText.charAt(i) + ", b:" + previousText.charAt(j));
+        return inputText.charAt(i);
+      }
+    }
+  }
+
+  return "";
+}
+
+const setCharacter = (char: string, index: number, guess: string, setFunction: React.Dispatch<React.SetStateAction<string>>) => {
+  // create new text = replace character
+  let newText =
+  guess.substring(0, index) + char + guess.substring(index + 1);
+  
+  // set new text
+  setFunction(newText);
 }
 
 /*  ==================================
