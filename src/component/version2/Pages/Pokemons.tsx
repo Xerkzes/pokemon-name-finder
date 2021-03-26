@@ -13,19 +13,23 @@ export const Pokemons: React.FC<PokemonsProps> = ({
   pokemons,
   usePicture,
 }) => {
-  const [showPokeCards, setShowPokeCards] = useState<boolean>();
+  const [showPokemons, setShowPokemons] = useState<boolean>();
   const cardsThatAreLoaded = useRef<number>(0);
 
   const imagesAreLoaded = () => {
     cardsThatAreLoaded.current += 1;
     if (cardsThatAreLoaded.current == pokemons?.length) {
-      setShowPokeCards(true);
+      setShowPokemons(true);
       cardsThatAreLoaded.current = 0;
     }
   };
 
   useEffect(() => {
-    setShowPokeCards(!usePicture);
+    if (pokemons != undefined && pokemons?.length <= 0) {
+      setShowPokemons(true);
+    } else {
+      setShowPokemons(false);
+    }
   }, []);
 
   return (
@@ -39,11 +43,11 @@ export const Pokemons: React.FC<PokemonsProps> = ({
       <div>
         <div
           className="pokemon-cards-loader2"
-          style={{ display: showPokeCards ? "none" : "block" }}
+          style={{ display: showPokemons ? "none" : "block" }}
         ></div>
 
         <div
-          style={{ display: showPokeCards ? "" : "none" }}
+          style={{ display: showPokemons ? "" : "none" }}
           className={
             usePicture ? "pokemon-image-container" : "pokemon-name-container"
           }
