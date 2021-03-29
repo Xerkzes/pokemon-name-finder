@@ -25,7 +25,7 @@ export const Pokemons: React.FC<PokemonsProps> = ({
   };
 
   useEffect(() => {
-    if (pokemons != undefined && pokemons?.length <= 0) {
+    if ((pokemons != undefined && pokemons?.length <= 0) || !usePicture) {
       setShowPokemons(true);
     } else {
       setShowPokemons(false);

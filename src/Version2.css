@@ -69,7 +69,7 @@
   color: white;
   font-family: "Roboto", sans-serif;
   border: none;
-  border-radius: 10px;
+  border-radius: 0px 10px 0px 10px;
   box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0, 0, 0, 0.6);
   transition: all 0.5s;
 }
