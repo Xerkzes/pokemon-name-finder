@@ -12,7 +12,9 @@ export const Titlepage: React.FC<TitlepageProps> = ({
   return (
     <div className="title-container">
       <div className="title2-background" onClick={() => nextPage("menu")}></div>
+
       <h1 className="title2-header">Poké-Name-Finder</h1>
+
       <div className="page-versions2-div">
         <p className="page-version2" onClick={() => setVersion("v1")}>
           v1

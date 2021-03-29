@@ -19,7 +19,9 @@ export const Search: React.FC<SearchProps> = ({
         &#60; &#60;
       </button>
 
-      <h2 className="page2-title">Search</h2>
+      <div className="page2-title-div">
+        <h2 className="page2-title">Search</h2>
+      </div>
 
       <div className="search-container">
         <div className="generator-options switches">

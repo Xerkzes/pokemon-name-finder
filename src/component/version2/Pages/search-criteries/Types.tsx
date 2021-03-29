@@ -87,7 +87,10 @@ export const Types: React.FC<TypesProps> = ({
       <button className="back-button" onClick={() => nextPage("menu")}>
         &#60; &#60;
       </button>
-      <h2 className="page2-title">Type</h2>
+
+      <div className="page2-title-div">
+        <h2 className="page2-title">Type</h2>
+      </div>
 
       <div>
         <div className="btn-header2">

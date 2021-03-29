@@ -38,7 +38,9 @@ export const Pokemons: React.FC<PokemonsProps> = ({
         &#60; &#60;
       </button>
 
-      <h2 className="page2-title">Pokemons: {pokemons?.length}</h2>
+      <div className="page2-title-div">
+        <h2 className="page2-title">Pokemons: {pokemons?.length}</h2>
+      </div>
 
       <div>
         <div

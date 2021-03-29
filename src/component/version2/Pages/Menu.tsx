@@ -7,7 +7,10 @@ interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({ nextPage }) => {
   return (
     <div className="version2-page-container">
-      <h2 className="page2-title">Menu</h2>
+      <div className="page2-title-div">
+        <h2 className="page2-title">Menu</h2>
+      </div>
+
       <div className="search-criteria-container">
         <button onClick={() => nextPage("generation")}>Generation</button>
         <button onClick={() => nextPage("type")}>Type</button>
