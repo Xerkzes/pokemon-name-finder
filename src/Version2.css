@@ -45,17 +45,17 @@
 .page2-title-div {
   display: flex;
   justify-content: center;
+  margin: 2rem 0 4rem 0;
 }
 
 .page2-title {
   font-size: 3rem;
-  margin: 1rem 0 4rem 0;
   text-align: center;
   color: white;
   font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
   text-shadow: 0px 0px 2px rgb(255, 255, 255);
-  padding: 1rem 5rem;
+  padding: 1rem 2rem;
   border: 2px dashed white;
   background-color: var(--headerBackground);
   box-shadow: 5px 5px var(--headerBackground), -5px -5px var(--headerBackground),
